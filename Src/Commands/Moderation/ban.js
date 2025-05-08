@@ -1,19 +1,18 @@
-//! This is a basic structure for a prefix command in discoBase using discord.js
+const { PermissionFlagsBits } = require("discord.js");
 
 module.exports = {
     name: "ban",
-    description: "cmd description.",
-    botPermissions: ['SendMessages'],
-    userPermissions: ['ManageMessages'],
+    botPermissions: [PermissionFlagsBits.BanMembers],
+    userPermissions: [PermissionFlagsBits.BanMembers],
     adminOnly: false,
     ownerOnly: false,
     devSev: false,
     devOnly: false,
     SVOnly: false,
-    cooldown: 10,
+    cooldown: 5,
     run: async (client, message, args) => {
 
-        // Your command logic goes here.
+        const target = args[0]
 
     },
 };

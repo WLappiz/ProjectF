@@ -3,6 +3,7 @@ const Intents = require('./configurations/Intents')
 const MyPartials = require('./configurations/Partials')
 const config = require('./configurations/config')
 const { mongoose } = require('mongoose')
+const { MemorySweeper } = require('./configurations/Sweeper')
 
 class Fortyra extends Client {
     constructor(options) {
@@ -35,6 +36,13 @@ class Fortyra extends Client {
         }
 
     }
+
+    async setup(client) {
+        const main = new MemorySweeper(client)
+        await main.setup()
+
+    }
+
 }
 
 module.exports = Fortyra;

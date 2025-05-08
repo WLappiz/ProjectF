@@ -10,6 +10,8 @@ const { antiCrash } = require('./Handlers/antiCrash.js');
 
 const startWatchers = require('./Handlers/watchFolder.js');
 
+const {}=require('')
+
 antiCrash();
 startWatchers();
 
@@ -19,6 +21,8 @@ const client = new Fortyra({});
 (async () => {
 
     await client.MongoConnect(client)
+
+    await client.setup(client)
 
     await eventsHandler(client, path.join(__dirname, 'Events'));
 
